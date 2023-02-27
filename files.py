@@ -138,8 +138,10 @@ def get_folders() -> [dict, None]:
         service = get_service(scopes=SCOPES['google_docs']['share'], service_type='drive')
 
         resource = service.files()
+        
+        query = "mimeType='" + constants.MIME_TYPES["folder"] + "'"
         result = resource.list(
-            q=f"mimeType={constants.MIME_TYPES['folder']}",
+            q=query,
             fields="files(id, name, parents)"
         ).execute()      # The list function can also take a pageSize to limit the # of returns.
 
