@@ -1,0 +1,5 @@
+*.json
+*customer_avatar*
+credentials*
+token*
+.idea/
